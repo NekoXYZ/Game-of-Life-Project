@@ -1,14 +1,15 @@
 
 /**
- * Purpose: to print out a 26x26 grid with a two dimensional array
+ * Purpose of overall Version: to get a functional 2d grid
+ * Purpose: have the 2d grid print out the position (a1-z26)
  *
  * @author Corwin
  * @version 14/05/21
  */
-public class version0_1
+public class version0_1_2
 {
     int board [][] = new int[26][26];
-    public version0_1()
+    public version0_1_2()
     {
        constructBoard();
        
