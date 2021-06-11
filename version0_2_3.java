@@ -40,9 +40,12 @@ public class version0_2_3
     
     void runGame(){
         String command;
+        String initialCommand;
         boolean awaitingInput=true;
         Scanner input = new Scanner(System.in); //creating input
-        while(awaitingInput) {command = input.nextLine();
+        while(awaitingInput) {
+            initialCommand = input.nextLine();
+            command = initialCommand.toLowerCase();
             switch (command) {
                 case "quit":
                 case "end" : //quit the game
