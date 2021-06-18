@@ -1,6 +1,6 @@
 
 /**
- * Purpose of overall Version: to add player input through typing commands and importing values
+ * Purpose of overall Version: to add player input through typing commands
  * Purpose: to add player input to manually input change X and O
  *
  *

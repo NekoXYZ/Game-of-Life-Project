@@ -1,7 +1,7 @@
-
+ 
 /**
- * Purpose of overall Version: to add player input through typing commands
- * Purpose: to add player input to manually input change X and O
+ * 
+ * Purpose: add in the function to 
  *
  *
  *
@@ -11,10 +11,11 @@
 
 import java.util.Scanner; //import scanners for input
 
-public class version0_2_3
+public class version0_3_1
 {
-    String board [][] = new String[26][52];
-    public version0_2_3()
+    String currentBoard [][] = new String[26][52];
+    String nextBoard [][] = new String[26][52];
+    public version0_3_1()
     {
        constructBoard();
        printBoard();
@@ -24,7 +25,7 @@ public class version0_2_3
     void constructBoard(){
         for (int y=0; y<26;y++){
             for (int x=0; x<52;x++){
-               board [y][x]= ("O");
+               currentBoard [y][x]= ("O");
             }
         }
     }
@@ -32,7 +33,7 @@ public class version0_2_3
     void printBoard(){
         for (int y=0; y<26;y++){
             for (int x=0; x<52;x++){
-               System.out.print(board[y][x]);
+               System.out.print(currentBoard[y][x]);
             }
             System.out.println();
         }
@@ -56,6 +57,10 @@ public class version0_2_3
                 turnOn();
                 printBoard();
                     break;
+                    
+                case "check neighbors":
+                calculateNextState();
+                    break;
                 
                 default :  
                 System.out.println("Invalid input"); 
@@ -69,6 +74,25 @@ public class version0_2_3
         Scanner input = new Scanner(System.in); //creating input
         int xValue = input.nextInt();
         int yValue = input.nextInt();
-        board[xValue][yValue] = "X";
+        currentBoard[xValue][yValue] = "X";
     }
+    
+    void calculateNextState(){
+        for (int y=0; y<26;y++){
+            for (int x=0; x<52; x++){
+                int neighbors = 0;
+                if (nextBoard [x][y-1].equals("X")) neighbors++;
+                if (nextBoard [x][y+1].equals("X")) neighbors++;
+                if (nextBoard [x+1][y].equals("X")) neighbors++;
+                if (nextBoard [x+1][y-1].equals("X")) neighbors++;
+                if (nextBoard [x+1][y+1].equals("X")) neighbors++;
+                if (nextBoard [x-1][y].equals("X")) neighbors++;
+                if (nextBoard [x-1][y-1].equals("X")) neighbors++;
+                if (nextBoard [x-1][y+1].equals("X")) neighbors++;
+                
+                System.out.println(x+""+y+""+neighbors);
+            }
+        }
+    }
+    
 }
