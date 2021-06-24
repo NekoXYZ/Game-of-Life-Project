@@ -1,4 +1,4 @@
- 
+
 /**
  * 
  * Purpose: add in the function to 
@@ -11,37 +11,37 @@
 
 import java.util.Scanner; //import scanners for input
 
-public class version0_3_3
+public class version0_3_6
 {
     final int WIDTH = 26;
     final int HEIGHT = 52;
-    
+
     String currentBoard [][] = new String[WIDTH][HEIGHT];
     String nextBoard [][] = new String[WIDTH][HEIGHT];
-    public version0_3_3()
+    public version0_3_6()
     {
-       constructBoard();
-       printBoard();
-       runGame();
+        constructBoard();
+        printBoard();
+        runGame();
     }
-    
+
     void constructBoard(){
         for (int x=0; x<WIDTH;x++){
             for (int y=0; y<HEIGHT;y++){
-               currentBoard [x][y]= ("O");
+                currentBoard [x][y]= ("O");
             }
         }
     }
-    
+
     void printBoard(){
         for (int x=0; x<WIDTH;x++){
             for (int y=0; y<HEIGHT;y++){
-               System.out.print(currentBoard[x][y]);
+                System.out.print(currentBoard[x][y]);
             }
             System.out.println();
         }
     }
-    
+
     void runGame(){
         String command;
         String initialCommand;
@@ -54,39 +54,42 @@ public class version0_3_3
                 case "quit":
                 case "end" : //quit the game
                 awaitingInput = false; //stops the while loop from running
-                    break;
-                
+                break;
+
                 case "turn on":
                 turnOn();
                 printBoard();
-                    break;
-                    
-                case "check neighbors":
+                break;
+
+                case "next stage":
+                case "step":
+                case "next":
                 calculateNextState();
-                    break;
-                
+                printBoard();
+                break;
+
                 default :  
                 System.out.println("Invalid input"); 
-                    break; 
-                    
+                break; 
+
             }
         }
     }
-   
+
     void turnOn(){
         Scanner input = new Scanner(System.in); //creating input
         int xValue = input.nextInt();//what x position
         int yValue = input.nextInt();//what y position
         currentBoard[xValue][yValue] = "X";//Turn the tile at (x,y) to an X (on)
     }
-    
+
     void turnOff(){
         Scanner input = new Scanner(System.in); //creating input
         int xValue = input.nextInt(); //what x position
         int yValue = input.nextInt(); //what y position
         currentBoard[xValue][yValue] = "O"; //Turn the tile at (x,y) to an O (off)
     }
-    
+
     void calculateNextState(){
         for (int x=0; x<WIDTH;x++){
             for (int y=0; y<HEIGHT; y++){
@@ -101,8 +104,8 @@ public class version0_3_3
                     if (currentBoard [x][y+1].equals("X")) 
                         neighbors++;
                     if (x!=0)//if x-1 is not out of bounds
-                        if (currentBoard [x-1][y+1].equals("X")) 
-                            neighbors++;
+                        if (currentBoard [x-1][y+1].equals("X")) //if the tile to the bottom left is on
+                            neighbors++; //increase neighbors
                     if (x+1!=WIDTH) //if x+1 is not out of bounds
                         if (currentBoard [x+1][y+1].equals("X")) 
                             neighbors++;
@@ -117,10 +120,14 @@ public class version0_3_3
                         if (currentBoard [x+1][y-1].equals("X")) 
                             neighbors++;
                 }
-                
-                System.out.println("X: "+x+" Y: "+y+" N: "+neighbors);
+
+                if (neighbors<=1) nextBoard[x][y]="O";
+                else if (neighbors == 2) nextBoard[x][y]=currentBoard[x][y];
+                else if (neighbors == 3) nextBoard[x][y]="X";
+                else if (neighbors >= 4) nextBoard[x][y]="O";
             }
         }
+        currentBoard = nextBoard;
     }
-    
+
 }

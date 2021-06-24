@@ -11,14 +11,14 @@
 
 import java.util.Scanner; //import scanners for input
 
-public class version0_3_3
+public class version0_3_4
 {
     final int WIDTH = 26;
     final int HEIGHT = 52;
     
     String currentBoard [][] = new String[WIDTH][HEIGHT];
     String nextBoard [][] = new String[WIDTH][HEIGHT];
-    public version0_3_3()
+    public version0_3_4()
     {
        constructBoard();
        printBoard();
@@ -61,8 +61,11 @@ public class version0_3_3
                 printBoard();
                     break;
                     
-                case "check neighbors":
+                case "next stage":
+                case "step":
+                case "next":
                 calculateNextState();
+                printBoard();
                     break;
                 
                 default :  
@@ -101,8 +104,8 @@ public class version0_3_3
                     if (currentBoard [x][y+1].equals("X")) 
                         neighbors++;
                     if (x!=0)//if x-1 is not out of bounds
-                        if (currentBoard [x-1][y+1].equals("X")) 
-                            neighbors++;
+                        if (currentBoard [x-1][y+1].equals("X")) //if the tile to the bottom left is on
+                            neighbors++; //increase neighbors
                     if (x+1!=WIDTH) //if x+1 is not out of bounds
                         if (currentBoard [x+1][y+1].equals("X")) 
                             neighbors++;
@@ -118,9 +121,13 @@ public class version0_3_3
                             neighbors++;
                 }
                 
-                System.out.println("X: "+x+" Y: "+y+" N: "+neighbors);
+                if (neighbors<2) nextBoard[x][y]="O";
+                else if (neighbors == 2) ;
+                else if (neighbors == 3) nextBoard[x][y]="X";
+                else if (neighbors >= 4) nextBoard[x][y]="O";
             }
         }
+        currentBoard = nextBoard;
     }
     
 }
