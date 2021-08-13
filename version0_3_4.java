@@ -1,8 +1,8 @@
  
 /**
  * 
- * Purpose: add in the function to 
- *
+ * Purpose of version 3: add in the function to calulate the next boardstate
+ * Purpose: add a function that uses the number of neighbors and a set of rules to set the next boardstate according to the rules, and then set the current board equal to the next board
  *
  *
  * @author Corwin

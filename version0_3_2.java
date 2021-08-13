@@ -1,7 +1,8 @@
  
 /**
+ * Purpose of version 3: add in the function to calulate the next boardstate
+ * Purpose: add in a check that the function wont be looking at out of bounds tiles
  * 
- * Purpose: add in the function to 
  *
  *
  *

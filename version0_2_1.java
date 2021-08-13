@@ -1,7 +1,7 @@
 
 /**
  * Purpose of overall Version: to add player input through typing commands
- * Purpose: to add player input to manually input change X and O
+ * Purpose: to add a grid of 0s and add player input with an end command
  *
  *
  *

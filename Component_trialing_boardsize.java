@@ -1,7 +1,7 @@
 
 /**
  * 
- * Purpose: Trial the display options 
+ * Purpose: trial the board size 
  *
  *
  *
@@ -11,21 +11,22 @@
 
 import java.util.Scanner; //import scanners for input
 
-public class Component_trialing_display
+public class Component_trialing_boardsize
 {
-    final int WIDTH = 52;
-    final int HEIGHT = 26;
+    final int WIDTH = 40;
+    final int HEIGHT = 90;
 
     String currentBoard [][] = new String[WIDTH][HEIGHT];
     String nextBoard [][] = new String[WIDTH][HEIGHT];
-    public Component_trialing_display()
+    public Component_trialing_boardsize()
     {
         constructBoard();
         printBoard();
         runGame();
     }
 
-    void constructBoard(){
+    void constructBoard()//Creates a WIDTH x HEIGHT board full of "-"
+    {
         for (int x=0; x<WIDTH;x++){
             for (int y=0; y<HEIGHT;y++){
                 currentBoard [x][y]= ("-");
@@ -34,8 +35,8 @@ public class Component_trialing_display
     }
 
     void printBoard(){
-        for (int y=0; y<HEIGHT;y++){
-            for (int x=0; x<WIDTH;x++){
+        for (int x=0; x<WIDTH;x++){
+            for (int y=0; y<HEIGHT;y++){
                 System.out.print(currentBoard[x][y]);
             }
             System.out.println();
@@ -57,11 +58,15 @@ public class Component_trialing_display
                 break;
 
                 case "turn on":
+                case "on":
+                case "activate":
                 turnOn();
                 printBoard();
                 break;
-
+                
                 case "turn off":
+                case "off":
+                case "deactivate":
                 turnOff();
                 printBoard();
                 break;
@@ -73,8 +78,11 @@ public class Component_trialing_display
                 break;
 
                 case "next stage":
+                case "next state":
+                case "next step":
                 case "step":
                 case "next":
+                case "s":
                 calculateNextState();
                 printBoard();
                 break;
@@ -139,10 +147,10 @@ public class Component_trialing_display
             for (int y=0; y<HEIGHT; y++){
                 int neighbors = checkNeighbors(x,y);
 
-                if (neighbors<=1) nextBoard[x][y]="-";
-                else if (neighbors == 2) nextBoard[x][y]=currentBoard[x][y];
+                
+                if (neighbors == 2) nextBoard[x][y]=currentBoard[x][y];
                 else if (neighbors == 3) nextBoard[x][y]="X";
-                else if (neighbors >= 4) nextBoard[x][y]="-";
+                else  nextBoard[x][y]="-";
             }
         }
         //set the current board to be the same as nextboard

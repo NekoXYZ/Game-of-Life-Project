@@ -1,7 +1,8 @@
  
 /**
  * 
- * Purpose: add in the function to 
+ * Purpose of version 3: add in the function to calulate the next boardstate
+ * Purpose: fix the problem with cells with 2 neighbors
  *
  *
  *

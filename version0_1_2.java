@@ -1,6 +1,6 @@
 
 /**
- * Purpose of overall Version: to get a functional 2d grid
+ * Purpose of overall Version: to get a functional 2d grid (a1-z26)
  * Purpose: have the 2d grid print out the position (a1-z26)
  *
  *

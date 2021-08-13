@@ -1,7 +1,7 @@
 
 /**
  * 
- * Purpose: add in the function to 
+ * Purpose: trial the game rules 
  *
  *
  *
@@ -60,7 +60,7 @@ public class Component_trialing_rules
                 turnOn();
                 printBoard();
                 break;
-
+                
                 case "turn off":
                 turnOff();
                 printBoard();
@@ -139,10 +139,10 @@ public class Component_trialing_rules
             for (int y=0; y<HEIGHT; y++){
                 int neighbors = checkNeighbors(x,y);
 
-                if (neighbors<=1) nextBoard[x][y]="-";
-                else if (neighbors == 2) nextBoard[x][y]=currentBoard[x][y];
+                
+                if (neighbors == 2) nextBoard[x][y]=currentBoard[x][y];
                 else if (neighbors == 3) nextBoard[x][y]="X";
-                else if (neighbors >= 4) nextBoard[x][y]="-";
+                else  nextBoard[x][y]="-";
             }
         }
         //set the current board to be the same as nextboard

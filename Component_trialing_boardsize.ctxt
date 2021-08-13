@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Component_trialing_boardsize
+comment1.params=
+comment1.target=Component_trialing_boardsize()
+comment2.params=
+comment2.target=void\ constructBoard()
+comment3.params=
+comment3.target=void\ printBoard()
+comment4.params=
+comment4.target=void\ runGame()
+comment5.params=
+comment5.target=void\ turnOn()
+comment6.params=
+comment6.target=void\ turnOff()
+comment7.params=x\ y
+comment7.target=int\ checkNeighbors(int,\ int)
+comment8.params=
+comment8.target=void\ calculateNextState()
+numComments=9

@@ -1,7 +1,7 @@
 
 /**
  * Purpose of overall Version: to add player input through typing commands
- * Purpose: to add player input to manually input change X and O
+ * Purpose: to add a toLowerCase so that the commands are no longer case sensitive
  *
  *
  *

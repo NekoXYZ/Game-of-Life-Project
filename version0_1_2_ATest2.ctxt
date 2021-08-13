@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=version0_1_2_ATest2
-comment0.text=\r\n\ Purpose\ of\ overall\ Version\:\ to\ get\ a\ functional\ 2d\ grid\r\n\ Purpose\:\ have\ the\ 2d\ grid\ print\ out\ the\ position\ (a1-z26)\r\n\r\n\r\n\r\n\ @author\ Corwin\r\n\ @version\ 14/05/21\r\n
+comment0.text=\r\n\ Purpose\ of\ overall\ Version\:\ to\ get\ a\ functional\ 2d\ grid\ (a1-z26)\r\n\ Purpose\:\ have\ the\ 2d\ grid\ print\ out\ the\ position\ (a1-a26)\r\n\r\n\r\n\r\n\ @author\ Corwin\r\n\ @version\ 14/05/21\r\n
 comment1.params=
 comment1.target=version0_1_2_ATest2()
 comment2.params=
